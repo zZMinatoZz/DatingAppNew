@@ -13,8 +13,8 @@ namespace DatingApp.API.Data
 
         Task<User> GetUserLogin(UserForLoginDto userForLoginDto);
 
-        Task<bool> HasUserExisted(UserForLoginDto userForLoginDto);
+        Task<bool> HasUserExisted(string username);
 
-
+        Task<User> AddUser(User user);
     }
 }

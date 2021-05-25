@@ -4,19 +4,24 @@ namespace DatingApp.API.Data
 {
     public class CrudRepository : ICrudRepository
     {
+        private readonly DataContext _context;
+        public CrudRepository(DataContext context)
+        {
+            _context = context;
+        }
         public void Add<T>(T entity) where T : class
         {
-            throw new System.NotImplementedException();
+            _context.Add(entity);
         }
 
         public void Remove<T>(T entity) where T : class
         {
-            throw new System.NotImplementedException();
+            _context.Remove(entity);
         }
 
-        public Task<bool> SaveAll()
+        public async Task<bool> SaveAll()
         {
-            throw new System.NotImplementedException();
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

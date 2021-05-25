@@ -3,10 +3,8 @@ using DatingApp.API.Dtos;
 
 namespace DatingApp.API.Services
 {
-    public interface IAuthService
+    public interface ILogin
     {
         Task<UserForLoginReturnDto> Login(UserForLoginDto userForLoginDto);
-        
-        Task<UserForLoginReturnDto> Register(UserForRegisterDto userForRegisterDto);
     }
 }

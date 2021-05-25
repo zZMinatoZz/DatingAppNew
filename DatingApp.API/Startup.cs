@@ -31,13 +31,17 @@ namespace DatingApp.API
             services.AddScoped<ITokenService, JwtTokenGenerator>();
             services.AddScoped<IPasswordService, PasswordService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ILogin, LoginService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IRegister, RegisterService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-            
+            services.AddScoped<ICrudRepository, CrudRepository>();
 
             services.AddDbContext<DataContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

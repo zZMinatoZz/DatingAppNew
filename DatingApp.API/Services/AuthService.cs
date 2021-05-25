@@ -1,15 +1,25 @@
+using System.Threading.Tasks;
+using DatingApp.API.Dtos;
+
 namespace DatingApp.API.Services
 {
     public class AuthService : IAuthService
     {
-        public void Login()
+        private readonly ILogin _loginService;
+        private readonly IRegister _registerService;
+        public AuthService(ILogin loginService, IRegister registerService)
         {
-            throw new System.NotImplementedException();
+            _loginService = loginService;
+            _registerService = registerService;
+        }
+        public async Task<UserForLoginReturnDto> Login(UserForLoginDto userForLoginDto)
+        {
+            return await _loginService.Login(userForLoginDto);
         }
 
-        public void Register()
+        public async Task<UserForLoginReturnDto> Register(UserForRegisterDto userForRegisterDto)
         {
-            throw new System.NotImplementedException();
+            return await _registerService.Register(userForRegisterDto);
         }
     }
 }
