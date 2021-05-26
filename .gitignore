@@ -3,3 +3,7 @@
 DatingApp.API/bin
 DatingApp.API/obj
 DatingApp.API/*.db
+
+DatingAppTest
+# DatingAppTest/bin
+# DatingAppTest/obj
